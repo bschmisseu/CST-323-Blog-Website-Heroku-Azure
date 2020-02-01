@@ -6,19 +6,19 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="/BlogWebsite/welcomepage/homepage/">Home</a>
+      <a class="nav-link" href="/welcomepage/homepage/">Home</a>
     </li>
     <li class="nav-item navbar-right">
-      <a class="nav-link" href="/BlogWebsite/loginRegistration/userInformation">My Info</a>
+      <a class="nav-link" href="/loginRegistration/userInformation">My Info</a>
     </li>
      <li class="nav-item navbar-right">
-      <a class="nav-link" href="/BlogWebsite/blog/viewUserPost">My Posts</a>
+      <a class="nav-link" href="/blog/viewUserPost">My Posts</a>
     </li>
     <li class="nav-item navbar-right">
-      <a class="nav-link" href="/BlogWebsite/blog/blogForm">Post Blog</a>
+      <a class="nav-link" href="/blog/blogForm">Post Blog</a>
     </li>
     <li class="nav-item navbar-right">
-      <a class="nav-link" href="/BlogWebsite/">Logout</a>
+      <a class="nav-link" href="/">Logout</a>
     </li>
   </ul>
 </nav>
