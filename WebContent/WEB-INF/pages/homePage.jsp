@@ -16,7 +16,7 @@ function getBlogs()
 	$.ajax(
 		{
 			type: "GET",
-			url: "/BlogWebsite/v1/blogs",
+			url: "/v1/blogs",
 			dataType: "json",
 						
 			success: function(data)
