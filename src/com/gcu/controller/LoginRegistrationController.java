@@ -140,7 +140,7 @@ public class LoginRegistrationController
 		catch(Exception e)
 		{
 			ModelAndView modelAndView = new ModelAndView("errorPageIndex");
-			modelAndView.addObject("errorMessage", e.getMessage());
+			modelAndView.addObject("errormessage", e.getMessage());
 			return modelAndView;
 		}
 
