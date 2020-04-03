@@ -139,7 +139,9 @@ public class LoginRegistrationController
 		
 		catch(Exception e)
 		{
-			return new ModelAndView("errorPageIndex");
+			ModelAndView modelAndView = new ModelAndView("errorPageIndex");
+			modelAndView.addObject("errormessage", e.getMessage());
+			return modelAndView;
 		}
 
 	}
