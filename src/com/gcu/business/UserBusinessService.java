@@ -29,7 +29,6 @@ public class UserBusinessService implements UserBusinessInterface
 	 * @see UserBuesinessInterface
 	 */
 	@SuppressWarnings({ "unchecked"})
-	@Override
 	public boolean validateUser(UserCredentials user) 
 	{
 		//Initialize variable to set the user valid or not
@@ -57,7 +56,6 @@ public class UserBusinessService implements UserBusinessInterface
 	 * @see UserBuesinessInterface
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
 	public int registerUser(User user) 
 	{		
 		//Add user to database
@@ -68,7 +66,6 @@ public class UserBusinessService implements UserBusinessInterface
 	 * @see UserBuesinessInterface
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
 	public int edit(User user, int userID) 
 	{
 		return doa.editUser(user, userID);
@@ -76,8 +73,7 @@ public class UserBusinessService implements UserBusinessInterface
 
 	/**
 	 * @see UserBuesinessInterface
-	 */
-	@Override 
+	 */ 
 	public int delete(int userID) 
 	{
 		return doa.deleteUser(userID);
@@ -86,7 +82,6 @@ public class UserBusinessService implements UserBusinessInterface
 	/**
 	 * @see UserBuesinessInterface
 	 */
-	@Override
 	public User getCurrentUser(int userID) 
 	{
 		return (User)doa.getUser(userID);

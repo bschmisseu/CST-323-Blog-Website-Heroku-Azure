@@ -32,7 +32,6 @@ public class BlogDataService implements BlogAccessInterface<Blog>
 	/**
 	 * @See BlogAccessInterface
 	 */
-	@Override
 	public boolean createBlog(Blog blog, int userID) 
 	{
 		//Creates a SQL to be filled in later
@@ -55,7 +54,6 @@ public class BlogDataService implements BlogAccessInterface<Blog>
 	/**
 	 * @See BlogAccessInterface
 	 */
-	@Override
 	public List<Blog> viewBlogs() 
 	{
 		//Creates a SQL to be filled in later
@@ -88,7 +86,6 @@ public class BlogDataService implements BlogAccessInterface<Blog>
 	/**
 	 * @See BlogAccessInterface
 	 */
-	@Override
 	public int editBlog(Blog blog, int blogID) 
 	{
 		//Variable to determine the out come of the Update sql command
@@ -116,7 +113,6 @@ public class BlogDataService implements BlogAccessInterface<Blog>
 	/**
 	 * @See BlogAccessInterface
 	 */
-	@Override
 	public int deleteBlog(int blogID) 
 	{
 		//Variable to determine the out come of the Update sql command
@@ -144,7 +140,6 @@ public class BlogDataService implements BlogAccessInterface<Blog>
 	/**
 	 * @See BlogAccessInterface
 	 */
-	@Override
 	public List<Blog> viewUserBlog(int userID) 
 	{
 		//Creates a SQL to be filled in later
@@ -176,7 +171,6 @@ public class BlogDataService implements BlogAccessInterface<Blog>
 	/**
 	 * @See BlogAccessInterface
 	 */
-	@Override
 	public Blog findBlog(Blog blog) 
 	{
 		//Creates a SQL to be filled in later
@@ -204,7 +198,6 @@ public class BlogDataService implements BlogAccessInterface<Blog>
 	/**
 	 * @See BlogAccessInterface
 	 */
-	@Override
 	public Blog findBlog(int blogID) 
 	{
 		//Creates a SQL to be filled in later

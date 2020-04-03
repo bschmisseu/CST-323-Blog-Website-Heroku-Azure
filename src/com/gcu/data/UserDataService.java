@@ -28,7 +28,6 @@ public class UserDataService implements UserAccessInterface<User, UserCredential
 	/**
 	 * @see UserAccessInterface
 	 */
-	@Override
 	public int createUser(User user) 
 	{
 		int returnNum = 0;
@@ -87,7 +86,6 @@ public class UserDataService implements UserAccessInterface<User, UserCredential
 	/**
 	 * @see UserAccessInterface
 	 */
-	@Override
 	public List<User> getAllUsers() 
 	{
 		//Creates a SQL statement to be filled in later
@@ -116,7 +114,6 @@ public class UserDataService implements UserAccessInterface<User, UserCredential
 	/**
 	 * @see UserAccessInterface
 	 */
-	@Override
 	public List<UserCredentials> getAllUserCredentials() 
 	{
 		//Creates SQL statements to be filled in later
@@ -144,7 +141,6 @@ public class UserDataService implements UserAccessInterface<User, UserCredential
 	/**
 	 * @see UserAccessInterface
 	 */
-	@Override
 	public int editUser(User user, int userID) 
 	{
 		int returnNum = 0;
@@ -184,7 +180,6 @@ public class UserDataService implements UserAccessInterface<User, UserCredential
 	/**
 	 * @see UserAccessInterface
 	 */
-	@Override
 	public int deleteUser(int userID) 
 	{
 		int returnNum = 0;
@@ -224,7 +219,6 @@ public class UserDataService implements UserAccessInterface<User, UserCredential
 	/**
 	 * @see UserAccessInterface
 	 */
-	@Override
 	public int getCurrentUserID(UserCredentials user) 
 	{
 		//Creates SQL statements to be filled in later
@@ -251,7 +245,6 @@ public class UserDataService implements UserAccessInterface<User, UserCredential
 	/**
 	 * @see UserAccessInterface
 	 */
-	@Override
 	public User getUser(int userID) 
 	{
 		//Creates SQL statements to be filled in later

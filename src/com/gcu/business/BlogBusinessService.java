@@ -28,7 +28,6 @@ public class BlogBusinessService implements BlogBusinessInterface
 	 * @see BlogBusinessInterface
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
 	public boolean postBlog(Blog blog) 
 	{		
 		return doa.createBlog(blog, priciple.getUserID());
@@ -38,7 +37,6 @@ public class BlogBusinessService implements BlogBusinessInterface
 	 * @see BlogBusinessInterface
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<Blog> getAllBlogs() 
 	{
 		return doa.viewBlogs();
@@ -48,7 +46,6 @@ public class BlogBusinessService implements BlogBusinessInterface
 	 * @see BlogBusinessInterface
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
 	public int editBlog(Blog blog) 
 	{
 		return doa.editBlog(blog, priciple.getBlogID());
@@ -57,7 +54,6 @@ public class BlogBusinessService implements BlogBusinessInterface
 	/**
 	 * @see BlogBusinessInterface
 	 */
-	@Override
 	public int deleteBlog() 
 	{
 		return doa.deleteBlog(priciple.getBlogID());
@@ -67,7 +63,6 @@ public class BlogBusinessService implements BlogBusinessInterface
 	 * @see BlogBusinessInterface
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<Blog> getUserPost(int userID) 
 	{
 		return doa.viewUserBlog(userID);
@@ -77,7 +72,6 @@ public class BlogBusinessService implements BlogBusinessInterface
 	 * @see BlogBusinessInterface
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
 	public Blog findBlog(Blog blog) 
 	{
 		return (Blog) doa.findBlog(blog);
@@ -86,7 +80,6 @@ public class BlogBusinessService implements BlogBusinessInterface
 	/**
 	 * @see BlogBusinessInterface
 	 */
-	@Override
 	public Blog findBlog(int blogID) 
 	{
 		return (Blog) doa.findBlog(blogID);

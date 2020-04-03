@@ -1,154 +1,20 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>BlogWebsite</groupId>
 	<artifactId>BlogWebsite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<!-- Dev and cloud Profile configurations -->
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <activation>
-               <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <build.profile.id>dev</build.profile.id>
-            </properties>
-            <build>
-              <resources>
-                <resource>
-                  <directory>src/config/dev</directory>
-                  <includes>
-                    <include>config.properties</include>
-                  </includes>
-                  <targetPath>config</targetPath>
-                </resource>
-                <resource>
-                  <directory>src/config/dev</directory>
-                  <includes>
-                    <include>web.xml</include>
-                  </includes>
-                  <targetPath>assignment7b/target/assignment7b/WEB-INF</targetPath>
-                </resource>
-               <resource>
-                  <directory>src/config/dev</directory>
-                  <includes>
-                    <include>log4j.xml</include>
-                  </includes>
-                  <targetPath>../assignment7b/WEB-INF/classes</targetPath>
-                </resource>
-              </resources>
-            </build>
-        </profile>
-        <profile>
-            <id>azure</id>
-            <activation>
-               <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <build.profile.id>azure</build.profile.id>
-            </properties>
-            <build>
-              <resources>
-                <resource>
-                  <directory>src/config/azure</directory>
-                  <includes>
-                    <include>config.properties</include>
-                  </includes>
-                  <targetPath>config</targetPath>
-                </resource>
-                <resource>
-                  <directory>src/config/azure</directory>
-                  <includes>
-                    <include>web.xml</include>
-                  </includes>
-                  <targetPath>assignment7b/target/assignment7b/WEB-INF</targetPath>
-                </resource>
-               <resource>
-                  <directory>src/config/azure</directory>
-                  <includes>
-                    <include>log4j.xml</include>
-                  </includes>
-                  <targetPath>../assignment7b/WEB-INF/classes</targetPath>
-                </resource>
-              </resources>
-            </build>
-        </profile>
-         <profile>
-            <id>heroku</id>
-            <activation>
-               <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <build.profile.id>heroku</build.profile.id>
-            </properties>
-            <build>
-              <resources>
-                <resource>
-                  <directory>src/config/heroku</directory>
-                  <includes>
-                    <include>config.properties</include>
-                  </includes>
-                  <targetPath>config</targetPath>
-                </resource>
-                <resource>
-                  <directory>src/config/heroku</directory>
-                  <includes>
-                    <include>web.xml</include>
-                  </includes>
-                  <targetPath>assignment7b/target/assignment7b/WEB-INF</targetPath>
-                </resource>
-               <resource>
-                  <directory>src/config/heroku</directory>
-                  <includes>
-                    <include>log4j.xml</include>
-                  </includes>
-                  <targetPath>../assignment7b/WEB-INF/classes</targetPath>
-                </resource>
-              </resources>
-            </build>
-        </profile>
-        <profile>
-            <id>amazon</id>
-            <activation>
-               <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <build.profile.id>amazon</build.profile.id>
-            </properties>
-            <build>
-              <resources>
-                <resource>
-                  <directory>src/config/amazon</directory>
-                  <includes>
-                    <include>config.properties</include>
-                  </includes>
-                  <targetPath>config</targetPath>
-                </resource>
-                <resource>
-                  <directory>src/config/amazon</directory>
-                  <includes>
-                    <include>web.xml</include>
-                  </includes>
-                  <targetPath>assignment7b/target/assignment7b/WEB-INF</targetPath>
-                </resource>
-               <resource>
-                  <directory>src/config/amazon</directory>
-                  <includes>
-                    <include>log4j.xml</include>
-                  </includes>
-                  <targetPath>../assignment7b/WEB-INF/classes</targetPath>
-                </resource>
-              </resources>
-            </build>
-        </profile>
-    </profiles>
 
-	<!-- Build Configuration -->
+	<properties>
+		<warname>BlogWebsite</warname>				<!-- Final WAR File Name with no SNAPSHOTS -->
+	</properties>
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		<finalName>BlogWebsite</finalName>			<!-- Final WAR File Name with no SNAPSHOTS -->
 		<plugins>
-
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.1</version>
@@ -157,38 +23,24 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.1</version>
+				<version>3.0.0</version>
 				<configuration>
-					<warSourceDirectory>WebContent</warSourceDirectory>
+					<warSourceDirectory>${project.basedir}/target/${warname}</warSourceDirectory>	<!-- Final WAR File Name with no SNAPSHOTS -->
 				</configuration>
 			</plugin>
-
-			<!-- NEW PLUGIN -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.18.1</version>
-				<configuration>
-					<includes>
-						<include>**/AllTests.java</include>
-					</includes>
-				</configuration>
-			</plugin>
-			<!-- END -->
-
+		
+		
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>1.3.2</version>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.0.2</version><!--$NO-MVN-MAN-VER$ -->
+				<version>3.0.2</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -208,40 +60,52 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			
 		</plugins>
-
-		<!-- NEW STUFF -->
 		<resources>
 			<resource>
 				<directory>src</directory>
-				<excludes>
-					<exclude>**/*.java</exclude>
-					<exclude>**/config.properties</exclude>
-					<exclude>**/web.xml</exclude>
-					<exclude>**/log4j.xml</exclude>
-				</excludes>
-			</resource>
-			<resource>
-				<directory>WebContent</directory>
-				<targetPath>assignment7b/target/assignment7b</targetPath>
 				<includes>
-					<include>**/WEB-INF/layouts/**</include>
-                	<include>**/WEB-INF/pages/**</include>
-                	<include>**/WEB-INF/applicationConfiguration.xml</include>
+					<include>log4j.xml</include>
 				</includes>
+				<targetPath>../BlogWebsite/WEB-INF/classes</targetPath>							<!-- Copy Log4j Configuration into Classpath -->
 			</resource>
 		</resources>
-		<testResources>
-			<testResource>
-				<directory>WebContent</directory>
-				<includes>
-					<include>**/*.xml</include>
-				</includes>
-			</testResource>
-		</testResources>
-		<!-- END -->
-    </build>
-	
+	</build>
+
+
+<!-- 	NEW STUFF
+	<resources>
+		<resource>
+			<directory>src</directory>
+			<excludes>
+				<exclude>**/*.java</exclude>
+				<exclude>**/config.properties</exclude>
+				<exclude>**/web.xml</exclude>
+				<exclude>**/log4j.xml</exclude>
+			</excludes>
+		</resource>
+		<resource>
+			<directory>WebContent</directory>
+			<targetPath>assignment7b/target/assignment7b</targetPath>
+			<includes>
+				<include>**/WEB-INF/layouts/**</include>
+				<include>**/WEB-INF/pages/**</include>
+				<include>**/WEB-INF/applicationConfiguration.xml</include>
+			</includes>
+		</resource>
+	</resources>
+	<testResources>
+		<testResource>
+			<directory>WebContent</directory>
+			<includes>
+				<include>**/*.xml</include>
+			</includes>
+		</testResource>
+	</testResources>
+	END -->
+
 	<!-- Dependencies -->
 	<dependencies>
 		<dependency>
@@ -450,4 +314,3 @@
 		</dependency>
 	</dependencies>
 </project>
-	
