@@ -25,7 +25,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.0.0</version>
 				<configuration>
-					<warSourceDirectory>${project.basedir}/target/${warname}</warSourceDirectory>	<!-- Final WAR File Name with no SNAPSHOTS -->
+					<warSourceDirectory>BlogWebsite/target/BlogWebsite</warSourceDirectory>	<!-- Final WAR File Name with no SNAPSHOTS -->
 				</configuration>
 			</plugin>
 		
@@ -38,7 +38,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.0.2</version><!--$NO-MVN-MAN-VER$-->
+				<version>3.0.2</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -67,8 +67,17 @@
 				<includes>
 					<include>log4j.xml</include>
 				</includes>
-				<targetPath>../${warname}/WEB-INF/classes</targetPath>							<!-- Copy Log4j Configuration into Classpath -->
+				<targetPath>../BlogWebsite/WEB-INF/classes</targetPath>							<!-- Copy Log4j Configuration into Classpath -->
 			</resource>	
+			<resource>
+             <directory>src</directory>
+             <excludes>
+                <exclude>**/*.java</exclude>
+                <exclude>**/config.properties</exclude> 
+                <exclude>**/web.xml</exclude>
+                <exclude>**/log4j.xml</exclude>
+              </excludes>
+      	</resource>
 		</resources>
 	</build>
 
