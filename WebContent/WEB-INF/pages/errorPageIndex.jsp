@@ -17,7 +17,6 @@
 	</tr>
 	<tr>
 		<td><p>We have seem to run into a problem processing your request! Please go back and try again!</p></td>
-		${errormessage}
 	</tr>
 </table>
 </div>
