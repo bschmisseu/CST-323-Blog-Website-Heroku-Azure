@@ -69,11 +69,6 @@
 				</includes>
 				<targetPath>../${warname}/WEB-INF/classes</targetPath>							<!-- Copy Log4j Configuration into Classpath -->
 			</resource>	
-      	<resource>
-             <directory>WebContent</directory>
-             <targetPath>../${warname}</targetPath>
-     	</resource>
-     	
 		</resources>
 	</build>
 
