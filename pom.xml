@@ -1,106 +1,51 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>BlogWebsite</groupId>
-	<artifactId>BlogWebsite</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>BlogWebsite</groupId>
+  <artifactId>BlogWebsite</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <properties>
+	<warname>BlogWebsite</warname>				<!-- Final WAR File Name with no SNAPSHOTS -->
+  </properties>
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <finalName>${warname}</finalName>			<!-- Final WAR File Name with no SNAPSHOTS -->
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+			<warSourceDirectory>${project.basedir}/target/${warname}</warSourceDirectory>	<!-- Final WAR File Name with no SNAPSHOTS -->
+        </configuration>
+      </plugin>
+    </plugins>
+    <resources>
+    	<resource>
+    		<directory>src</directory>
+    		<includes>
+    			<include>log4j.xml</include>
+    		</includes>  
+			<targetPath>../${warname}/WEB-INF/classes</targetPath>							<!-- Copy Log4j Configuration into Classpath -->
+    	</resource>
+    	<resource>
+    		<directory>WebContent</directory>
+ 			<targetPath>../${warname}</targetPath>											<!-- Copy Webcontent to output -->
+    	</resource>
+    </resources>
+  </build>
 
-	<properties>
-		<warname>BlogWebsite</warname>				<!-- Final WAR File Name with no SNAPSHOTS -->
-	</properties>
-
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<finalName>BlogWebsite</finalName>			<!-- Final WAR File Name with no SNAPSHOTS -->
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.6.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.0.0</version>
-				<configuration>
-					<warSourceDirectory>BlogWebsite/target/BlogWebsite</warSourceDirectory>	<!-- Final WAR File Name with no SNAPSHOTS -->
-				</configuration>
-			</plugin>
-		
-		
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>1.3.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.0.2</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>copy</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.github.jsimone</groupId>
-									<artifactId>webapp-runner</artifactId>
-									<version>8.5.31.0</version>
-									<destFileName>webapp-runner.jar</destFileName>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			
-			
-		</plugins>
-		<resources>
-			<resource>
-				<directory>src</directory>
-				<includes>
-					<include>log4j.xml</include>
-				</includes>
-				<targetPath>../BlogWebsite/WEB-INF/classes</targetPath>							<!-- Copy Log4j Configuration into Classpath -->
-			</resource>	
-			<resource>
-             <directory>src</directory>
-             <excludes>
-                <exclude>**/*.java</exclude>
-                <exclude>**/config.properties</exclude> 
-                <exclude>**/web.xml</exclude>
-                <exclude>**/log4j.xml</exclude>
-              </excludes>
-      	</resource>
-		</resources>
-	</build>
-
-	<!-- Dependencies -->
-	<dependencies>
-	
-	<dependency>
-		<groupId>com.google.cloud.sql</groupId>
-		<artifactId>mysql-socket-factory</artifactId>
-		<version>1.0.5</version>
-	</dependency>
-	<dependency>
-		<groupId>com.google.api-client</groupId>
-		<artifactId>google-api-client</artifactId>
-		<version>1.21.0</version>
-	</dependency>
-	<dependency>
-		<groupId>com.google.api-client</groupId>
-		<artifactId>google-api-client-appengine</artifactId>
-		<version>1.21.0</version>
-	</dependency>
-	
-	<dependency>
+  <!-- Dependencies -->
+  <dependencies>
+  	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-context</artifactId>
   		<version>4.3.9.RELEASE</version>
@@ -292,6 +237,6 @@
         <artifactId>slf4j-log4j12</artifactId>
         <version>1.7.12</version>
     </dependency>
+  </dependencies>
 
-	</dependencies>
 </project>
